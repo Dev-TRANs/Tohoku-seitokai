@@ -2,57 +2,27 @@
 const base = import.meta.env.BASE_URL;
 ---
 <section class="hero">
-  <div class="hero-bg-shapes">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-  </div>
-
+  <div class="hero-bg-accent"></div>
   <div class="hero-inner">
-    <div class="logo-wrapper">
-      <div class="logo-glow"></div>
+    <div class="logo-area">
       <img src={`${base}/logo.png`} alt="東北生徒会連合 ロゴ" class="hero-logo" />
     </div>
 
-    <div class="org-badge">
-      <span class="pulse-dot"></span>
-      TOHOKU STUDENTS UNION
-    </div>
+    <div class="org-sub">TSU</div>
 
-    <h1 class="title">
-      つながる、<span class="gradient-text">東北生徒会。</span>
-    </h1>
+    <h1 class="title">つながる東北生徒会</h1>
 
     <p class="lead">
-      東北6県の高校生徒会外務活動を推進し、<br class="pc-only"/>
-      学校・地域・世代の枠を越えた共創を生み出す学生連合プラットフォーム
+      東北地方の生徒会外務活動を推進する学生団体
     </p>
 
-    <div class="cta-group">
+    <div class="cta-wrapper">
       <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        <span>今すぐ参加登録（無料）</span>
-        <svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
+        参加フォームはこちら →
       </a>
-      <a href={`${base}/#about`} class="btn-secondary">活動理念を見る</a>
-    </div>
-
-    <!-- 実績・規模感のクイックスタッツ -->
-    <div class="stats-row">
-      <div class="stat-item">
-        <span class="stat-num">6<span class="stat-unit">県</span></span>
-        <span class="stat-label">東北全域ネットワーク</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">2<span class="stat-unit">期</span></span>
-        <span class="stat-label">活動体制スタート</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-num">100<span class="stat-unit">%</span></span>
-        <span class="stat-label">現役学生による運営</span>
-      </div>
+      <a href={`${base}/#about`} class="btn-secondary">
+        ABOUT
+      </a>
     </div>
   </div>
 </section>
@@ -60,206 +30,98 @@ const base = import.meta.env.BASE_URL;
 <style>
   .hero {
     position: relative;
-    padding: 5rem 1.5rem 4rem;
-    overflow: hidden;
-    background: #090d16;
-    color: #ffffff;
+    padding: 5rem 1.5rem 4.5rem;
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    border-bottom: 1px solid #e2e8f0;
     text-align: center;
+    overflow: hidden;
   }
-  .hero-bg-shapes {
+  .hero-bg-accent {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  .shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.35;
-  }
-  .shape-1 {
-    width: 450px;
-    height: 450px;
-    background: #0284c7;
-    top: -120px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(34, 152, 184, 0.12) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
   }
-  .shape-2 {
-    width: 320px;
-    height: 320px;
-    background: #0d9488;
-    bottom: -60px;
-    right: 15%;
-  }
-
   .hero-inner {
     position: relative;
-    max-width: 860px;
+    max-width: 800px;
     margin: 0 auto;
-    z-index: 10;
   }
-
-  .logo-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-  .logo-glow {
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #38bdf8, #2dd4bf);
-    filter: blur(12px);
-    opacity: 0.6;
-  }
-  .hero-logo {
-    position: relative;
-    width: 105px;
-    height: 105px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
-
-  .org-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(10px);
-    padding: 0.35rem 0.9rem;
-    border-radius: 9999px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #bae6fd;
+  .logo-area {
     margin-bottom: 1.25rem;
   }
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
+  .hero-logo {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: #38bdf8;
-    box-shadow: 0 0 10px #38bdf8;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
   }
-
+  .org-sub {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #2298b8;
+    margin-bottom: 0.75rem;
+  }
   .title {
-    font-size: 3.2rem;
+    font-size: 2.75rem;
     font-weight: 900;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    color: #0f172a;
+    line-height: 1.2;
     margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
   }
-  .gradient-text {
-    background: linear-gradient(135deg, #38bdf8 20%, #a7f3d0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   .lead {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #cbd5e1;
-    margin: 0 auto 2.5rem;
-    max-width: 680px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #334155;
+    margin: 0 auto 2.25rem;
+    line-height: 1.6;
   }
-
-  .cta-group {
+  .cta-wrapper {
     display: flex;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3.5rem;
   }
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    display: inline-block;
+    background: #2298b8;
     color: #ffffff;
     font-weight: 700;
     text-decoration: none;
-    padding: 0.85rem 1.85rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(34, 152, 184, 0.25);
     transition: all 0.2s ease;
   }
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(14, 165, 233, 0.6);
-  }
-  .arrow-icon {
-    width: 18px;
-    height: 18px;
+    background: #1b7a94;
+    transform: translateY(-1px);
   }
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.08);
-    color: #f1f5f9;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    font-weight: 600;
+    display: inline-block;
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    font-weight: 700;
     text-decoration: none;
-    padding: 0.85rem 1.75rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
     transition: all 0.2s ease;
   }
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #f8fafc;
+    border-color: #94a3b8;
   }
-
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(15, 23, 42, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 1.25rem 2rem;
-    max-width: 660px;
-    margin: 0 auto;
-  }
-  .stat-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .stat-num {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #38bdf8;
-    line-height: 1;
-  }
-  .stat-unit {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    margin-left: 2px;
-  }
-  .stat-label {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    font-weight: 600;
-    margin-top: 0.35rem;
-  }
-  .stat-divider {
-    width: 1px;
-    height: 35px;
-    background: rgba(255, 255, 255, 0.12);
-  }
-
   @media (max-width: 640px) {
     .hero { padding: 3.5rem 1.25rem 3rem; }
-    .title { font-size: 2.2rem; }
-    .lead { font-size: 0.95rem; }
-    .pc-only { display: none; }
-    .stats-row { padding: 1rem 0.75rem; }
-    .stat-num { font-size: 1.5rem; }
-    .stat-label { font-size: 0.7rem; }
+    .hero-logo { width: 96px; height: 96px; }
+    .title { font-size: 2rem; }
+    .lead { font-size: 1.05rem; }
   }
 </style>

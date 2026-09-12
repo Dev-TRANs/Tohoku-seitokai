@@ -1,44 +1,26 @@
 <section id="projects" class="projects-section">
   <div class="container">
-    <div class="header-box">
-      <span class="badge">PROJECTS</span>
-      <h2 class="title">現在進行中のプロジェクト</h2>
-      <p class="desc">東北全域の生徒会をつなぎ、各地域を盛り上げる具体的なアクションです。</p>
-    </div>
+    <div class="section-label">PROJECT</div>
+    <h2 class="section-title">主な活動内容</h2>
 
-    <div class="project-cards">
-      <!-- Project 01 -->
-      <div class="p-card">
-        <div class="p-header">
-          <span class="p-badge">PROJECT 01</span>
-          <span class="status-upcoming">2026年10月末 開催予定</span>
-        </div>
+    <div class="cards-grid">
+      <!-- PROJECT 01 -->
+      <div class="project-card">
+        <div class="p-num">PROJECT 01</div>
         <h3 class="p-title">東北生徒会交流会（オンライン）</h3>
-        <p class="p-desc">
-          学校の垣根を越えて東北6県の生徒会役員が集結。学校行事の企画・運営ノウハウや校則改正、地域連携の事例をリアルタイムでシェアし合う大規模交流セッションです。
+        <div class="date-badge">10月末 開催予定！</div>
+        <p class="p-text">
+          各校の枠を越え、東北6県の生徒会役員同士がオンライン上で自由に意見交換や情報共有ができる交流イベントです。
         </p>
-        <div class="p-tags">
-          <span class="tag">#オンライン</span>
-          <span class="tag">#役員交流</span>
-          <span class="tag">#活動共有</span>
-        </div>
       </div>
 
-      <!-- Project 02 -->
-      <div class="p-card">
-        <div class="p-header">
-          <span class="p-badge">PROJECT 02</span>
-          <span class="status-active">推進中</span>
-        </div>
+      <!-- PROJECT 02 -->
+      <div class="project-card">
+        <div class="p-num">PROJECT 02</div>
         <h3 class="p-title">各県生徒会連盟の設立・支援</h3>
-        <p class="p-desc">
-          青森県生徒会連盟の立ち上げをはじめ、各県単位での連盟組織づくりを直接伴走支援。単県での活動力を底上げし、東北連合との二重構造で強固な基盤をつくります。
+        <p class="p-text">
+          県連盟のない地域での立ち上げ支援や連携を行い、各県単位での活動と東北全体のつながりを両立させます。
         </p>
-        <div class="p-tags">
-          <span class="tag">#連盟設立</span>
-          <span class="tag">#青森県連盟</span>
-          <span class="tag">#組織伴走</span>
-        </div>
       </div>
     </div>
   </div>
@@ -46,114 +28,68 @@
 
 <style>
   .projects-section {
-    padding: 5rem 1.5rem;
-    background: #ffffff;
+    padding: 4.5rem 1.5rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
   }
   .container {
-    max-width: 1000px;
+    max-width: 860px;
     margin: 0 auto;
   }
-  .header-box {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-  }
-  .badge {
-    display: inline-block;
-    color: #0d9488;
-    background: #ccfbf1;
-    font-size: 0.8rem;
+  .section-label {
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #2298b8;
+    margin-bottom: 0.5rem;
   }
-  .title {
-    font-size: 2.25rem;
+  .section-title {
+    font-size: 2rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
   }
-  .desc {
-    color: #64748b;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .project-cards {
+  .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
-  .p-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 2.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.2s ease;
-  }
-  .p-card:hover {
-    border-color: #38bdf8;
+  .project-card {
     background: #ffffff;
-    box-shadow: 0 12px 24px -4px rgba(2, 132, 199, 0.08);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   }
-  .p-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  .p-badge {
-    font-size: 0.75rem;
+  .p-num {
+    font-size: 0.8rem;
     font-weight: 800;
-    color: #0284c7;
-    letter-spacing: 0.05em;
-  }
-  .status-upcoming {
-    font-size: 0.75rem;
-    font-weight: 700;
-    background: #fef08a;
-    color: #854d0e;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-  }
-  .status-active {
-    font-size: 0.75rem;
-    font-weight: 700;
-    background: #dcfce7;
-    color: #15803d;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
+    letter-spacing: 0.08em;
+    color: #2298b8;
+    margin-bottom: 0.6rem;
   }
   .p-title {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 0.85rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
   }
-  .p-desc {
-    font-size: 0.95rem;
+  .date-badge {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  .p-text {
+    font-size: 0.98rem;
     line-height: 1.7;
     color: #475569;
-    margin: 0 0 1.5rem;
-    flex-grow: 1;
-  }
-  .p-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-  .tag {
-    font-size: 0.8rem;
-    color: #64748b;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
+    margin: 0;
   }
 </style>

@@ -4,25 +4,21 @@ const base = import.meta.env.BASE_URL;
 ---
 <section id="prefectures" class="pref-section">
   <div class="container">
-    <div class="header-box">
-      <span class="badge">NETWORK</span>
-      <h2 class="title">東北6県 連盟ネットワーク</h2>
-      <p class="desc">各県の連盟組織のステータスおよび詳細情報です。カードをクリックして個別ページを確認できます。</p>
-    </div>
+    <div class="section-label">NETWORK</div>
+    <h2 class="section-title">各県連盟</h2>
+    <p class="lead">各県の生徒会連盟一覧です。</p>
 
     <div class="pref-grid">
       {prefectures.map(pref => (
         <a href={`${base}/prefectures/${pref.id}`} class="pref-card">
-          <div class="card-top">
+          <div class="pref-top">
             <span class="pref-name">{pref.name}</span>
-            <span class={`status-badge ${pref.active ? 'active' : 'prep'}`}>
+            <span class={`pref-status ${pref.active ? 'active' : 'prep'}`}>
               {pref.active ? '設立済み' : '準備中'}
             </span>
           </div>
-          <div class="org-name">{pref.orgName || '組織設立準備中'}</div>
-          <div class="card-footer">
-            <span class="link-text">詳細を見る →</span>
-          </div>
+          <div class="pref-org">{pref.orgName || '準備中'}</div>
+          <div class="pref-arrow">詳細を見る →</div>
         </a>
       ))}
     </div>
@@ -31,104 +27,88 @@ const base = import.meta.env.BASE_URL;
 
 <style>
   .pref-section {
-    padding: 5rem 1.5rem 6rem;
-    background: #f8fafc;
+    padding: 4.5rem 1.5rem 5.5rem;
+    background: #ffffff;
   }
   .container {
-    max-width: 1000px;
+    max-width: 860px;
     margin: 0 auto;
   }
-  .header-box {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-  }
-  .badge {
-    display: inline-block;
-    color: #6366f1;
-    background: #e0e7ff;
-    font-size: 0.8rem;
+  .section-label {
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #2298b8;
+    margin-bottom: 0.5rem;
   }
-  .title {
-    font-size: 2.25rem;
+  .section-title {
+    font-size: 2rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
   }
-  .desc {
+  .lead {
     color: #64748b;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin: 0;
+    font-size: 1rem;
+    margin: 0 0 2rem;
   }
-
   .pref-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.25rem;
   }
   .pref-card {
-    background: #ffffff;
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 1.5rem;
+    border-radius: 10px;
+    padding: 1.35rem;
     text-decoration: none;
     color: inherit;
+    transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   }
   .pref-card:hover {
-    transform: translateY(-3px);
-    border-color: #0284c7;
-    box-shadow: 0 10px 20px -3px rgba(2, 132, 199, 0.1);
+    background: #ffffff;
+    border-color: #2298b8;
+    box-shadow: 0 4px 12px rgba(34, 152, 184, 0.1);
+    transform: translateY(-2px);
   }
-  .card-top {
+  .pref-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
   .pref-name {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #0f172a;
   }
-  .status-badge {
-    font-size: 0.75rem;
+  .pref-status {
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: 0.2rem 0.6rem;
+    padding: 0.15rem 0.5rem;
     border-radius: 9999px;
   }
-  .status-badge.active {
+  .pref-status.active {
     background: #dcfce7;
-    color: #15803d;
+    color: #166534;
   }
-  .status-badge.prep {
-    background: #f1f5f9;
+  .pref-status.prep {
+    background: #e2e8f0;
     color: #64748b;
   }
-  .org-name {
-    font-size: 0.95rem;
+  .pref-org {
+    font-size: 0.92rem;
     color: #475569;
-    margin-bottom: 1.25rem;
-    min-height: 2.6em;
-    line-height: 1.3;
+    margin-bottom: 1rem;
+    min-height: 1.4em;
   }
-  .card-footer {
-    border-top: 1px solid #f1f5f9;
-    padding-top: 0.75rem;
-  }
-  .link-text {
+  .pref-arrow {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #0284c7;
+    color: #2298b8;
   }
 </style>

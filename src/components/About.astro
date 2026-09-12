@@ -1,27 +1,20 @@
 <section id="about" class="about-section">
   <div class="container">
-    <div class="header-box">
-      <span class="badge">ABOUT US</span>
-      <h2 class="title">外務の孤立を解消し、<br class="sp-only"/>越境する学びを</h2>
-      <p class="desc">学校の外と関わる「外務活動」。東北の生徒会が抱えてきた課題を解決するために立ち上がりました。</p>
-    </div>
+    <div class="section-label">ABOUT</div>
+    <h2 class="section-title">東北生徒会連合とは</h2>
 
-    <div class="grid-layout">
-      <!-- 設立の背景 -->
-      <div class="feature-card main-card">
-        <div class="card-icon">🏛️</div>
-        <h3>東北生徒会連合とは</h3>
-        <p>
-          他地域に比べて生徒会の学校間交流が少なかった東北地方において、外務活動を推進し、学生同士が気軽に相談・共創できる環境を作るために2024年に結成された有志学生団体です。
-        </p>
-      </div>
+    <div class="card-box">
+      <p class="body-text">
+        生徒会には「外務」という学校の外と関わる仕事もあります。しかし、東北地方にはあまり外務の仕事が浸透しておらず、他校の生徒会員と関わる機会もほとんど存在しませんでした。
+      </p>
+      <p class="body-text">
+        東北地方の生徒会外務活動を推進すべく、東北の生徒会に所属する学生自身が2024年に立ち上げた学生団体です。
+      </p>
 
-      <!-- 課題と方針 -->
-      <div class="feature-card highlight-card">
-        <div class="card-icon">🎯</div>
-        <h3>第2期 方針：持続可能性と仲間づくり</h3>
-        <p>
-          地方での活動で最も大きな壁となる<strong>「継続の難しさ」</strong>と<strong>「仲間の集めにくさ」</strong>。第2期では各県での連盟立ち上げ支援とオンラインプラットフォームを掛け合わせ、代が変わっても続く生徒会インフラを築きます。
+      <div class="sub-block">
+        <h3 class="sub-title">2期東北生徒会連合の方針</h3>
+        <p class="sub-text">
+          東北地方で何かをはじめるとき、「継続の難しさ」と「仲間の集めにくさ」の2つが大きな課題です。2期東北生徒会連合では、それらを解決し、東北6県で生徒会活動をする人たちの支えになるような<strong>「つながる東北生徒会」</strong>を目指してイベントを運営しています。
         </p>
       </div>
     </div>
@@ -30,85 +23,63 @@
 
 <style>
   .about-section {
-    padding: 5rem 1.5rem;
-    background: #f8fafc;
+    padding: 4.5rem 1.5rem;
+    background: #ffffff;
   }
   .container {
-    max-width: 1000px;
+    max-width: 860px;
     margin: 0 auto;
   }
-  .header-box {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-  .badge {
-    display: inline-block;
-    color: #0284c7;
-    background: #e0f2fe;
-    font-size: 0.8rem;
+  .section-label {
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #2298b8;
+    margin-bottom: 0.5rem;
   }
-  .title {
-    font-size: 2.25rem;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.25;
-    margin: 0 0 1rem;
-  }
-  .desc {
-    font-size: 1.05rem;
-    color: #64748b;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .feature-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 2.25rem;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-  }
-  .highlight-card {
-    border-top: 4px solid #0284c7;
-  }
-  .main-card {
-    border-top: 4px solid #0d9488;
-  }
-  .card-icon {
+  .section-title {
     font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .feature-card h3 {
-    font-size: 1.35rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
   }
-  .feature-card p {
-    font-size: 0.98rem;
-    line-height: 1.7;
+  .card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2.25rem;
+  }
+  .body-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+    margin: 0 0 1.25rem;
+  }
+  .body-text:last-of-type {
+    margin-bottom: 2rem;
+  }
+  .sub-block {
+    background: #ffffff;
+    border-left: 4px solid #2298b8;
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .sub-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.75rem;
+  }
+  .sub-text {
+    font-size: 1rem;
+    line-height: 1.75;
     color: #475569;
     margin: 0;
   }
   @media (max-width: 640px) {
-    .title { font-size: 1.75rem; }
-    .feature-card { padding: 1.5rem; }
+    .card-box { padding: 1.5rem 1.25rem; }
+    .section-title { font-size: 1.65rem; }
+    .sub-block { padding: 1.25rem; }
   }
 </style>
