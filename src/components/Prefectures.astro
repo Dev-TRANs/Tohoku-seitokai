@@ -1,0 +1,90 @@
+---
+import { prefectures } from '../data/prefectures';
+const base = import.meta.env.BASE_URL;
+---
+<section id="prefectures" class="prefectures section">
+  <div class="container">
+    <div class="section-badge">NETWORK</div>
+    <h2 class="section-title">東北6県の連盟組織</h2>
+    <p class="lead">各県の生徒会連盟の活動状況や詳細情報をご覧いただけます。</p>
+    <div class="pref-grid">
+      {prefectures.map(pref => (
+        <a href={`${base}/prefectures/${pref.id}`} class="pref-card">
+          <div class="pref-name">{pref.name}</div>
+          <div class="pref-org">{pref.orgName || '準備中'}</div>
+          <span class={`status-pill ${pref.active ? 'active' : 'prep'}`}>
+            {pref.active ? '設立済み' : '準備中'}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section { padding: 4rem 1.5rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .section-badge {
+    color: #0284c7;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.5rem;
+  }
+  .lead {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+  .pref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .pref-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pref-card:hover {
+    border-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  }
+  .pref-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .pref-org {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0.25rem 0 0.75rem;
+  }
+  .status-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+  .status-pill.active {
+    background: #dcfce7;
+    color: #166534;
+  }
+  .status-pill.prep {
+    background: #f1f5f9;
+    color: #64748b;
+  }
+</style>
