@@ -23,10 +23,14 @@ const base = import.meta.env.BASE_URL;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href={`${base}/logo.png`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="demo-bar">
-      <span>【DEMO】このサイトは制作・確認用のプレビュー版です。実際の活動内容に合わせて順次更新されます。</span>
+    <div class="demo-banner">
+      <span class="demo-pill">DEMO PREVIEW</span>
+      <span>現在、公開に向けたデザイン検証版を表示しています。</span>
     </div>
     <Header />
     <main>
@@ -40,20 +44,34 @@ const base = import.meta.env.BASE_URL;
   * {
     box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
     color: #334155;
     background-color: #ffffff;
-    line-height: 1.5;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  .demo-bar {
-    background: #fee2e2;
-    color: #991b1b;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-align: center;
-    padding: 0.4rem 1rem;
-    border-bottom: 1px solid #fecaca;
+  .demo-banner {
+    background: #450a0a;
+    color: #fecaca;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.35rem 1rem;
+  }
+  .demo-pill {
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
   }
 </style>

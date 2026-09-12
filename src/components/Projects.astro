@@ -1,78 +1,159 @@
-<section id="projects" class="projects section">
+<section id="projects" class="projects-section">
   <div class="container">
-    <div class="section-badge">PROJECTS</div>
-    <h2 class="section-title">主な活動内容</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-tag">PROJECT 01</div>
-        <h3>東北生徒会交流会（オンライン）</h3>
-        <p class="highlight">10月末 開催予定</p>
-        <p class="desc">
-          各校の枠を越え、東北6県の生徒会役員同士がオンライン上で自由に意見交換や情報共有ができる交流イベントです。
+    <div class="header-box">
+      <span class="badge">PROJECTS</span>
+      <h2 class="title">現在進行中のプロジェクト</h2>
+      <p class="desc">東北全域の生徒会をつなぎ、各地域を盛り上げる具体的なアクションです。</p>
+    </div>
+
+    <div class="project-cards">
+      <!-- Project 01 -->
+      <div class="p-card">
+        <div class="p-header">
+          <span class="p-badge">PROJECT 01</span>
+          <span class="status-upcoming">2026年10月末 開催予定</span>
+        </div>
+        <h3 class="p-title">東北生徒会交流会（オンライン）</h3>
+        <p class="p-desc">
+          学校の垣根を越えて東北6県の生徒会役員が集結。学校行事の企画・運営ノウハウや校則改正、地域連携の事例をリアルタイムでシェアし合う大規模交流セッションです。
         </p>
+        <div class="p-tags">
+          <span class="tag">#オンライン</span>
+          <span class="tag">#役員交流</span>
+          <span class="tag">#活動共有</span>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-tag">PROJECT 02</div>
-        <h3>各県生徒会連盟の設立・支援</h3>
-        <p class="highlight">県連盟のない地域での立ち上げ推進</p>
-        <p class="desc">
-          青森県生徒会連盟をはじめ、各県での連盟組織の立ち上げをサポートし、東北全域に持続可能な生徒会ネットワークを広げます。
+
+      <!-- Project 02 -->
+      <div class="p-card">
+        <div class="p-header">
+          <span class="p-badge">PROJECT 02</span>
+          <span class="status-active">推進中</span>
+        </div>
+        <h3 class="p-title">各県生徒会連盟の設立・支援</h3>
+        <p class="p-desc">
+          青森県生徒会連盟の立ち上げをはじめ、各県単位での連盟組織づくりを直接伴走支援。単県での活動力を底上げし、東北連合との二重構造で強固な基盤をつくります。
         </p>
+        <div class="p-tags">
+          <span class="tag">#連盟設立</span>
+          <span class="tag">#青森県連盟</span>
+          <span class="tag">#組織伴走</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .section { padding: 4rem 1.5rem; background: #f8fafc; }
-  .container { max-width: 900px; margin: 0 auto; }
-  .section-badge {
-    color: #0284c7;
-    font-size: 0.85rem;
+  .projects-section {
+    padding: 5rem 1.5rem;
+    background: #ffffff;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .header-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+  .badge {
+    display: inline-block;
+    color: #0d9488;
+    background: #ccfbf1;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
   }
-  .section-title {
-    font-size: 1.85rem;
+  .title {
+    font-size: 2.25rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
   }
-  .cards-grid {
+  .desc {
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .project-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
   }
-  .card {
-    background: #ffffff;
+  .p-card {
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 1.75rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    border-radius: 16px;
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
   }
-  .card-tag {
+  .p-card:hover {
+    border-color: #38bdf8;
+    background: #ffffff;
+    box-shadow: 0 12px 24px -4px rgba(2, 132, 199, 0.08);
+  }
+  .p-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .p-badge {
     font-size: 0.75rem;
     font-weight: 800;
     color: #0284c7;
     letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
   }
-  .card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.25rem;
-    color: #0f172a;
-  }
-  .highlight {
+  .status-upcoming {
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #0369a1;
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+    background: #fef08a;
+    color: #854d0e;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
   }
-  .desc {
-    color: #64748b;
-    line-height: 1.6;
+  .status-active {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+  .p-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.85rem;
+  }
+  .p-desc {
     font-size: 0.95rem;
-    margin: 0;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+  }
+  .p-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 0.8rem;
+    color: #64748b;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
   }
 </style>

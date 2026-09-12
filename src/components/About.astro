@@ -1,18 +1,27 @@
-<section id="about" class="about section">
+<section id="about" class="about-section">
   <div class="container">
-    <div class="section-badge">ABOUT</div>
-    <h2 class="section-title">東北生徒会連合とは</h2>
-    <div class="content-box">
-      <p>
-        生徒会には「外務」という学校の外と関わる仕事もあります。しかし、東北地方にはあまり外務の文化が浸透しておらず、他校の生徒会員と関わる機会もほとんど存在しませんでした。
-      </p>
-      <p>
-        東北地方の生徒会外務活動を推進すべく、東北の生徒会に所属する学生自身が2024年に立ち上げた学生団体です。
-      </p>
-      <div class="policy-card">
-        <h3>第2期 東北生徒会連合の方針</h3>
+    <div class="header-box">
+      <span class="badge">ABOUT US</span>
+      <h2 class="title">外務の孤立を解消し、<br class="sp-only"/>越境する学びを</h2>
+      <p class="desc">学校の外と関わる「外務活動」。東北の生徒会が抱えてきた課題を解決するために立ち上がりました。</p>
+    </div>
+
+    <div class="grid-layout">
+      <!-- 設立の背景 -->
+      <div class="feature-card main-card">
+        <div class="card-icon">🏛️</div>
+        <h3>東北生徒会連合とは</h3>
         <p>
-          東北地方で何かを始めるとき、「継続の難しさ」と「仲間の集めにくさ」の2つが大きな課題です。第2期東北生徒会連合では、それらを解決し、東北6県で生徒会活動をする人たちの支えになるような<strong>「つながる東北生徒会」</strong>を目指してイベントや連盟づくりを進めています。
+          他地域に比べて生徒会の学校間交流が少なかった東北地方において、外務活動を推進し、学生同士が気軽に相談・共創できる環境を作るために2024年に結成された有志学生団体です。
+        </p>
+      </div>
+
+      <!-- 課題と方針 -->
+      <div class="feature-card highlight-card">
+        <div class="card-icon">🎯</div>
+        <h3>第2期 方針：持続可能性と仲間づくり</h3>
+        <p>
+          地方での活動で最も大きな壁となる<strong>「継続の難しさ」</strong>と<strong>「仲間の集めにくさ」</strong>。第2期では各県での連盟立ち上げ支援とオンラインプラットフォームを掛け合わせ、代が変わっても続く生徒会インフラを築きます。
         </p>
       </div>
     </div>
@@ -20,41 +29,86 @@
 </section>
 
 <style>
-  .section { padding: 4rem 1.5rem; }
-  .container { max-width: 900px; margin: 0 auto; }
-  .section-badge {
+  .about-section {
+    padding: 5rem 1.5rem;
+    background: #f8fafc;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .header-box {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3rem;
+  }
+  .badge {
+    display: inline-block;
     color: #0284c7;
-    font-size: 0.85rem;
+    background: #e0f2fe;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
   }
-  .section-title {
-    font-size: 1.85rem;
+  .title {
+    font-size: 2.25rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 1.5rem;
+    line-height: 1.25;
+    margin: 0 0 1rem;
   }
-  .content-box p {
-    color: #334155;
-    line-height: 1.8;
+  .desc {
     font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .feature-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.25rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+  }
+  .highlight-card {
+    border-top: 4px solid #0284c7;
+  }
+  .main-card {
+    border-top: 4px solid #0d9488;
+  }
+  .card-icon {
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
-  .policy-card {
-    margin-top: 2rem;
-    padding: 1.75rem;
-    background: #f8fafc;
-    border-left: 4px solid #0284c7;
-    border-radius: 0 8px 8px 0;
-  }
-  .policy-card h3 {
-    margin: 0 0 0.75rem;
-    font-size: 1.2rem;
+  .feature-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
     color: #0f172a;
+    margin: 0 0 1rem;
   }
-  .policy-card p {
-    margin: 0;
+  .feature-card p {
+    font-size: 0.98rem;
+    line-height: 1.7;
     color: #475569;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .title { font-size: 1.75rem; }
+    .feature-card { padding: 1.5rem; }
   }
 </style>
