@@ -1,6 +1,10 @@
 <section id="about" class="about-section">
   <div class="container">
-    <div class="section-label">ABOUT</div>
+    <div class="section-badge-wrap">
+      <span class="badge-icon">✦</span>
+      <span class="section-label">ABOUT</span>
+      <span class="badge-icon">✦</span>
+    </div>
     <h2 class="section-title">東北生徒会連合とは</h2>
 
     <div class="card-box">
@@ -12,9 +16,12 @@
       </p>
 
       <div class="sub-block">
-        <h3 class="sub-title">2期東北生徒会連合の方針</h3>
+        <div class="sub-header">
+          <span class="sub-pin">📌</span>
+          <h3 class="sub-title">2期東北生徒会連合の方針</h3>
+        </div>
         <p class="sub-text">
-          東北地方で何かをはじめるとき、「継続の難しさ」と「仲間の集めにくさ」の2つが大きな課題です。2期東北生徒会連合では、それらを解決し、東北6県で生徒会活動をする人たちの支えになるような<strong>「つながる東北生徒会」</strong>を目指してイベントを運営しています。
+          東北地方で何かをはじめるとき、「継続の難しさ」と「仲間の集めにくさ」の2つが大きな課題です。2期東北生徒会連合では、それらを解決し、東北6県で生徒会活動をする人たちの支えになるような<span class="highlight-line">「つながる東北生徒会」</span>を目指してイベントを運営しています。
         </p>
       </div>
     </div>
@@ -23,35 +30,48 @@
 
 <style>
   .about-section {
-    padding: 4.5rem 1.5rem;
-    background: #ffffff;
+    padding: 5rem 1.5rem;
+    position: relative;
   }
   .container {
     max-width: 860px;
     margin: 0 auto;
   }
-  .section-label {
+  .section-badge-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .badge-icon {
+    color: #f59e0b;
     font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
+  }
+  .section-label {
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
     color: #2298b8;
-    margin-bottom: 0.5rem;
   }
   .section-title {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 2.15rem;
+    font-weight: 900;
     color: #0f172a;
-    margin: 0 0 2rem;
+    text-align: center;
+    margin: 0 0 2.25rem;
+    letter-spacing: -0.01em;
   }
   .card-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 2.25rem;
+    background: #ffffff;
+    border: 3px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 0px #cbd5e1, 0 12px 24px rgba(0,0,0,0.04);
   }
   .body-text {
     font-size: 1.05rem;
-    line-height: 1.8;
+    line-height: 1.85;
     color: #334155;
     margin: 0 0 1.25rem;
   }
@@ -59,27 +79,39 @@
     margin-bottom: 2rem;
   }
   .sub-block {
-    background: #ffffff;
-    border-left: 4px solid #2298b8;
-    border-radius: 0 8px 8px 0;
+    background: #f0fdfa;
+    border: 2px solid #99f6e4;
+    border-radius: 16px;
     padding: 1.5rem 1.75rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .sub-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .sub-pin {
+    font-size: 1.25rem;
   }
   .sub-title {
     font-size: 1.2rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 0.75rem;
+    font-weight: 800;
+    color: #0f766e;
+    margin: 0;
   }
   .sub-text {
     font-size: 1rem;
-    line-height: 1.75;
-    color: #475569;
+    line-height: 1.8;
+    color: #334155;
     margin: 0;
   }
+  .highlight-line {
+    background: linear-gradient(transparent 60%, #fed7aa 60%);
+    font-weight: 800;
+    padding: 0 0.2em;
+  }
   @media (max-width: 640px) {
-    .card-box { padding: 1.5rem 1.25rem; }
-    .section-title { font-size: 1.65rem; }
-    .sub-block { padding: 1.25rem; }
+    .card-box { padding: 1.5rem 1.25rem; border-radius: 18px; }
+    .section-title { font-size: 1.75rem; }
   }
 </style>

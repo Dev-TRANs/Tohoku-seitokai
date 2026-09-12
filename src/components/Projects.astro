@@ -1,14 +1,20 @@
 <section id="projects" class="projects-section">
   <div class="container">
-    <div class="section-label">PROJECT</div>
+    <div class="section-badge-wrap">
+      <span class="badge-icon">✦</span>
+      <span class="section-label">PROJECT</span>
+      <span class="badge-icon">✦</span>
+    </div>
     <h2 class="section-title">主な活動内容</h2>
 
     <div class="cards-grid">
       <!-- PROJECT 01 -->
       <div class="project-card">
-        <div class="p-num">PROJECT 01</div>
+        <div class="card-header">
+          <span class="p-num">PROJECT 01</span>
+          <span class="pop-badge">10月末 開催予定！</span>
+        </div>
         <h3 class="p-title">東北生徒会交流会（オンライン）</h3>
-        <div class="date-badge">10月末 開催予定！</div>
         <p class="p-text">
           各校の枠を越え、東北6県の生徒会役員同士がオンライン上で自由に意見交換や情報共有ができる交流イベントです。
         </p>
@@ -16,7 +22,10 @@
 
       <!-- PROJECT 02 -->
       <div class="project-card">
-        <div class="p-num">PROJECT 02</div>
+        <div class="card-header">
+          <span class="p-num">PROJECT 02</span>
+          <span class="pop-badge prep">推進中</span>
+        </div>
         <h3 class="p-title">各県生徒会連盟の設立・支援</h3>
         <p class="p-text">
           県連盟のない地域での立ち上げ支援や連携を行い、各県単位での活動と東北全体のつながりを両立させます。
@@ -28,67 +37,94 @@
 
 <style>
   .projects-section {
-    padding: 4.5rem 1.5rem;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 5rem 1.5rem;
+    position: relative;
   }
   .container {
     max-width: 860px;
     margin: 0 auto;
   }
-  .section-label {
+  .section-badge-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .badge-icon {
+    color: #f59e0b;
     font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
+  }
+  .section-label {
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
     color: #2298b8;
-    margin-bottom: 0.5rem;
   }
   .section-title {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 2.15rem;
+    font-weight: 900;
     color: #0f172a;
-    margin: 0 0 2rem;
+    text-align: center;
+    margin: 0 0 2.5rem;
   }
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
   .project-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border: 3px solid #e2e8f0;
+    border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 6px 0px #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 0px #94a3b8;
+    border-color: #2298b8;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   .p-num {
-    font-size: 0.8rem;
-    font-weight: 800;
+    font-size: 0.85rem;
+    font-weight: 900;
     letter-spacing: 0.08em;
     color: #2298b8;
-    margin-bottom: 0.6rem;
+  }
+  .pop-badge {
+    background: #fef08a;
+    color: #854d0e;
+    border: 1.5px solid #eab308;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.2rem 0.65rem;
+    border-radius: 50px;
+  }
+  .pop-badge.prep {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
   }
   .p-title {
-    font-size: 1.25rem;
-    font-weight: 800;
+    font-size: 1.35rem;
+    font-weight: 900;
     color: #0f172a;
-    margin: 0 0 0.75rem;
-    line-height: 1.4;
-  }
-  .date-badge {
-    display: inline-block;
-    background: #fef3c7;
-    color: #92400e;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.25rem 0.6rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
+    line-height: 1.35;
   }
   .p-text {
     font-size: 0.98rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: #475569;
     margin: 0;
   }
