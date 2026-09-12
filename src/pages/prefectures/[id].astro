@@ -18,7 +18,7 @@ const { pref } = Astro.props;
 
 <Layout title={`${pref.name} | 東北生徒会連合`}>
   <div class="page-container">
-    <a href="/#prefectures" class="back-btn">← 一覧に戻る</a>
+    <a href={`${import.meta.env.BASE_URL}/#prefectures`} class="back-btn">← 一覧に戻る</a>
 
     <div class="detail-box">
       <div class="detail-header" style={`border-top-color: ${pref.themeColor || '#2298b8'};`}>
@@ -54,7 +54,7 @@ const { pref } = Astro.props;
           <tr>
             <th>参加・立ち上げ</th>
             <td>
-              <a href="https://forms.gle/zPdjCMkgBmT1A91c7" target="_blank" class="form-btn">
+              <a href={`${import.meta.env.BASE_URL}/#prefectures`} target="_blank" class="form-btn">
                 {pref.shortName}県連盟の参加・立ち上げフォームを開く ➔
               </a>
             </td>
