@@ -3,15 +3,28 @@ const base = import.meta.env.BASE_URL;
 ---
 <header class="header">
   <div class="header-inner">
+    <!-- ブランドロゴ・団体名 -->
     <a href={`${base}/`} class="brand">
       <img src={`${base}/logo.png`} alt="東北生徒会連合 ロゴ" class="logo" />
       <span class="site-title">東北生徒会連合</span>
       <span class="demo-tag">DEMO</span>
     </a>
+
+    <!-- スマホ用ハンバーガー開閉トグル（チェックボックス方式） -->
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+    <label for="menu-toggle" class="menu-btn" aria-label="メニューを開閉">
+      <span class="bar top"></span>
+      <span class="bar middle"></span>
+      <span class="bar bottom"></span>
+    </label>
+
+    <!-- ナビゲーションメニュー -->
     <nav class="nav">
-      <a href={`${base}/#about`}>概要</a>
-      <a href={`${base}/#projects`}>事業</a>
-      <a href={`${base}/#prefectures`}>各県連盟</a>
+      <div class="nav-links">
+        <a href={`${base}/#about`} class="nav-item">概要</a>
+        <a href={`${base}/#projects`} class="nav-item">事業</a>
+        <a href={`${base}/#prefectures`} class="nav-item">各県連盟</a>
+      </div>
       <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-join">参加フォーム</a>
     </nav>
   </div>
@@ -22,72 +35,172 @@ const base = import.meta.env.BASE_URL;
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid #e5e7eb;
   }
   .header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
   .brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
     text-decoration: none;
-    color: #111827;
+    color: #0f172a;
     font-weight: 700;
   }
   .logo {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     object-fit: cover;
   }
   .site-title {
     font-size: 1.15rem;
+    white-space: nowrap;
   }
   .demo-tag {
     background: #ef4444;
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 800;
-    padding: 0.15rem 0.45rem;
+    padding: 0.15rem 0.4rem;
     border-radius: 4px;
     letter-spacing: 0.05em;
+  }
+
+  /* PC向けナビゲーションスタイル */
+  .menu-checkbox {
+    display: none;
+  }
+  .menu-btn {
+    display: none;
   }
   .nav {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
     gap: 1.25rem;
   }
-  .nav a {
+  .nav-item {
     text-decoration: none;
-    color: #4b5563;
+    color: #475569;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.2s;
   }
-  .nav a:hover {
+  .nav-item:hover {
     color: #0284c7;
   }
   .btn-join {
-    background: #fef08a !important;
-    color: #854d0e !important;
+    background: #fef08a;
+    color: #854d0e;
+    text-decoration: none;
     border: 1px solid #ca8a04;
-    padding: 0.4rem 0.9rem;
+    padding: 0.45rem 1rem;
     border-radius: 9999px;
-    font-weight: 700 !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    white-space: nowrap;
   }
   .btn-join:hover {
-    background: #fde047 !important;
+    background: #fde047;
+    transform: translateY(-1px);
   }
+
+  /* 📱 スマホ対応（幅 640px 以下） */
   @media (max-width: 640px) {
-    .site-title { font-size: 1rem; }
-    .nav a:not(.btn-join) { display: none; }
+    /* 団体名を非表示にして窮屈感を解消 */
+    .site-title {
+      display: none;
+    }
+
+    /* ハンバーガーアイコンの表示 */
+    .menu-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      z-index: 60;
+      padding: 4px;
+    }
+    .bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #334155;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* チェック時に三本線をバツ（×）に変形 */
+    .menu-checkbox:checked ~ .menu-btn .top {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-checkbox:checked ~ .menu-btn .middle {
+      opacity: 0;
+    }
+    .menu-checkbox:checked ~ .menu-btn .bottom {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* メニューのドロワー展開 */
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0 1.25rem;
+      border-bottom: 2px solid #e2e8f0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .menu-checkbox:checked ~ .nav {
+      max-height: 280px;
+      padding: 1.25rem;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .nav-item {
+      padding: 0.6rem 0.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .nav-item:hover {
+      background: #f8fafc;
+    }
+    .btn-join {
+      text-align: center;
+      padding: 0.7rem 1rem;
+      display: block;
+    }
   }
 </style>
