@@ -1,0 +1,229 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【デモ版・確認用】{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="is-demo">
+
+  <!-- 【本番化時にここを削除】デモ版警告バナー＆透かし -->
+  <div class="demo-ribbon">
+    <div class="demo-ribbon-content">
+      <span class="demo-hazard">⚠️ DEMO PREVIEW ⚠️</span>
+      <strong>【開発中デモサイト・確認用】</strong>
+      ※SNSプロフィールや公式アカウント等にこのURLを掲載・共有しないでください。
+    </div>
+  </div>
+  <div class="demo-watermark">DEMO</div>
+
+  <nav class="top-nav">
+    <div class="nav-content">
+      <a href="/" class="brand-link">
+        <img src="/logo.png" alt="ロゴ" class="nav-logo" />
+        <span>東北生徒会連合</span>
+        <span class="demo-tag">DEMO</span>
+      </a>
+      <div class="nav-menu">
+        <a href="/">トップ</a>
+        <a href="/#about">概要</a>
+        <a href="/#prefectures">各県連盟</a>
+        <a href="https://forms.gle/zPdjCMkgBmT1A91c7" target="_blank" class="nav-join-btn">参加フォーム</a>
+      </div>
+    </div>
+  </nav>
+
+  <slot />
+
+  <footer>
+    <div class="demo-footer-alert">
+      ※現在は開発段階のデモ環境です。正式公開用URLではありません。
+    </div>
+    <p>&copy; 東北生徒会連合 (TSU)</p>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --tsu-sky: #a9f1ff;
+    --tsu-blue: #2298b8;
+    --tsu-deep: #164e63;
+    --aomori-red: #D70419;
+    --paper-bg: #fdfbf7;
+    --ink: #1f2937;
+    --stamp-yellow: #fef08a;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: var(--ink);
+    background-color: var(--paper-bg);
+    background-image: radial-gradient(#dcf2f7 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  a {
+    color: var(--tsu-blue);
+    text-underline-offset: 3px;
+  }
+
+  /* デモ強調スタイル */
+  .demo-ribbon {
+    background: repeating-linear-gradient(
+      -45deg,
+      #111827,
+      #111827 15px,
+      #eab308 15px,
+      #eab308 30px
+    );
+    padding: 8px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .demo-ribbon-content {
+    background: #000;
+    border: 2px solid #facc15;
+    border-radius: 8px;
+    padding: 6px 14px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: #fef08a;
+    text-align: center;
+  }
+
+  .demo-hazard {
+    background: #facc15;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-size: 0.75rem;
+    display: inline-block;
+  }
+
+  .demo-tag {
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 1px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--ink);
+    vertical-align: middle;
+  }
+
+  .demo-watermark {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-size: clamp(6rem, 18vw, 15rem);
+    font-weight: 900;
+    color: rgba(220, 38, 38, 0.06);
+    pointer-events: none;
+    z-index: 50;
+    user-select: none;
+    letter-spacing: 0.1em;
+  }
+
+  .demo-footer-alert {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px dashed #dc2626;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .top-nav {
+    position: sticky;
+    top: 55px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 2.5px solid var(--ink);
+    padding: 10px 16px;
+  }
+
+  .nav-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 900;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .nav-join-btn {
+    background: var(--stamp-yellow);
+    border: 1.5px solid var(--ink);
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: #e0f7fa;
+    border-top: 2.5px solid var(--ink);
+    font-weight: 900;
+  }
+
+  @media (max-width: 640px) {
+    .top-nav { position: static; }
+    .demo-ribbon-content { font-size: 0.75rem; line-height: 1.4; }
+  }
+</style>

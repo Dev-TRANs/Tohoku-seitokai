@@ -1,0 +1,291 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { prefectures } from '../data/prefectures';
+---
+
+<Layout title="東北生徒会連合 (TSU) | つながる東北生徒会">
+  
+  <header class="hero">
+    <div class="logo-box">
+      <img src="/logo.png" alt="東北生徒会連合 ロゴ" class="hero-logo" />
+      <div class="hero-tag">TSU</div>
+    </div>
+    <h1 class="main-title"><span>つながる東北生徒会</span></h1>
+    <p class="hero-sub">東北地方の生徒会外務活動を推進する学生団体</p>
+    <a href="https://forms.gle/zPdjCMkgBmT1A91c7" target="_blank" class="cta-btn">参加フォームはこちら ➔</a>
+  </header>
+
+  <div class="container">
+
+    <section id="about" class="box">
+      <div class="badge-label">ABOUT</div>
+      <h2 class="sec-title">東北生徒会連合とは</h2>
+      <p>生徒会には「外務」という学校の外と関わる仕事もあります。しかし、東北地方にはあまり外務の仕事が浸透しておらず、他校の生徒会員と関わる機会もほとんど存在しませんでした。</p>
+      <p style="margin-top: 10px;">
+        東北地方の生徒会外務活動を推進すべく、東北の生徒会に所属する学生自身が<strong>2024年に立ち上げた学生団体</strong>です。
+      </p>
+
+      <h3 class="sub-heading">2期東北生徒会連合の方針</h3>
+      <p>東北地方で何かをはじめるとき、「継続の難しさ」と「仲間の集めにくさ」の2つが大きな課題です。2期東北生徒会連合では、それらを解決し、東北6県で生徒会活動をする人たちの支えになるような<strong>「つながる東北生徒会」</strong>を目指してイベントを運営しています。</p>
+    </section>
+
+    <section class="box">
+      <div class="badge-label">PROJECT 01</div>
+      <h2 class="sec-title">東北生徒会交流会（オンライン）</h2>
+      <p class="alert-date">📅 10月末 開催予定！</p>
+      <p>各校の枠を越え、東北6県の生徒会役員同士がオンライン上で自由に意見交換や情報共有ができる交流イベントです。</p>
+    </section>
+
+    <section id="prefectures" class="box">
+      <div class="badge-label">PROJECT 02</div>
+      <h2 class="sec-title">各県生徒会連盟の発足</h2>
+      <p>各県でオフラインで行う生徒会交流会の開催や、多種多様な独自企画を企画・運営していきます。</p>
+
+      <div class="pref-grid">
+        {prefectures.map((pref) => (
+          <div class={`pref-card ${pref.status}`}>
+            <div class="card-head">
+              <span class="card-title">{pref.name}</span>
+              <span class={`card-status ${pref.status}`}>{pref.statusLabel}</span>
+            </div>
+            <p class="card-account">ID: <code>{pref.account}</code></p>
+            <a href={`/prefectures/${pref.id}`} class="card-link">
+              連盟の詳細を見る ➔
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <p class="notice-callout">
+        ※未定の県でも「自分の県でやりたい！」という方は大歓迎です。すぐに連盟発足できるよう準備をして待っています。
+      </p>
+
+      <div class="line-card">
+        <h3>状況共有プラットフォーム（LINEオープンチャット）</h3>
+        <p>オープンチャット「東北生徒会自由交流」</p>
+        <div class="code-pill">参加コード: touhoku2</div><br />
+        <a href="https://line.me/ti/g2/wNLEboTTDI_pK1kESGy1qRRjZhxDyT6h-WZ3QQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="line-btn">
+          オープンチャットに参加する ➔
+        </a>
+      </div>
+    </section>
+
+    <section class="box">
+      <div class="badge-label">OVERVIEW</div>
+      <h2 class="sec-title">連合概要</h2>
+      <ul class="meta-list">
+        <li><strong>名称:</strong> 東北生徒会連合（TSU - Tohoku Student council Union）</li>
+        <li><strong>所属人数:</strong> 16名</li>
+        <li><strong>代表:</strong> 鈴木詩乃（<a href="https://www.instagram.com/io9nuy/" target="_blank">@io9nuy</a>）</li>
+        <li><strong>副代表:</strong> 高森柊吾（<a href="https://www.instagram.com/takso09/" target="_blank">@takso09</a>）</li>
+        <li><strong>公式Instagram:</strong> <a href="https://www.instagram.com/tsu_seitokai/" target="_blank">@tsu_seitokai</a></li>
+        <li><strong>メール:</strong> <a href="mailto:tsu.seitokai@gmail.com">tsu.seitokai@gmail.com</a></li>
+        <li>
+          <strong>参加フォーム:</strong> 
+          <a href="https://forms.gle/zPdjCMkgBmT1A91c7" target="_blank">連合・各県連盟 参加フォーム</a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(180deg, #c4f4fc 0%, var(--tsu-sky) 55%, var(--paper-bg) 100%);
+    padding: 40px 20px 60px;
+    text-align: center;
+  }
+  .logo-box {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .hero-logo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    background: #fff;
+    transform: rotate(-3deg);
+  }
+  .hero-tag {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: var(--aomori-red);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 2px solid var(--ink);
+  }
+  .main-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+  }
+  .main-title span {
+    background: linear-gradient(transparent 65%, #ffeb99 65%);
+  }
+  .hero-sub {
+    font-weight: 700;
+    color: #4b5563;
+    margin: 10px 0 20px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--aomori-red);
+    color: #fff;
+    font-weight: 900;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 16px 60px;
+  }
+  .box {
+    background: #fff;
+    border: 2.5px solid var(--ink);
+    border-radius: 16px;
+    padding: 26px;
+    margin-bottom: 40px;
+    box-shadow: 4px 4px 0 var(--ink);
+    position: relative;
+  }
+  .badge-label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--stamp-yellow);
+    border: 2px solid var(--ink);
+    padding: 2px 12px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border-radius: 10px;
+  }
+  .sec-title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    border-bottom: 2px dashed #cbd5e1;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+  .sub-heading {
+    font-size: 1.15rem;
+    margin: 16px 0 8px;
+  }
+  .alert-date {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--aomori-red);
+    margin-bottom: 6px;
+  }
+
+  .pref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .pref-card {
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .pref-card.active { border-top: 6px solid var(--aomori-red); }
+  .pref-card.coming_soon { border-top: 6px solid #f59e0b; }
+  .pref-card.undecided { border-top: 6px solid #94a3b8; }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .card-title { font-weight: 900; }
+  .card-status {
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 12px;
+    border: 1.5px solid var(--ink);
+  }
+  .card-status.active { background: #fee2e2; }
+  .card-status.coming_soon { background: #fef3c7; }
+  .card-status.undecided { background: #f1f5f9; }
+
+  .card-account {
+    font-size: 0.85rem;
+    color: #4b5563;
+  }
+  .card-link {
+    margin-top: 12px;
+    display: block;
+    text-align: center;
+    background: var(--tsu-sky);
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    padding: 6px;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .notice-callout {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .line-card {
+    background: #06c755;
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 20px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .code-pill {
+    display: inline-block;
+    background: #fff;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    padding: 3px 12px;
+    border-radius: 8px;
+    font-weight: 900;
+    margin: 8px 0;
+  }
+  .line-btn {
+    display: inline-block;
+    background: #fff;
+    color: #06c755;
+    font-weight: 900;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1.5px solid var(--ink);
+  }
+  .meta-list { list-style: none; }
+  .meta-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { prefectures, type Prefecture } from '../../data/prefectures';
+
+export function getStaticPaths() {
+  return prefectures.map((pref) => ({
+    params: { id: pref.id },
+    props: { pref },
+  }));
+}
+
+interface Props {
+  pref: Prefecture;
+}
+
+const { pref } = Astro.props;
+---
+
+<Layout title={`${pref.name} | 東北生徒会連合`}>
+  <div class="page-container">
+    <a href="/#prefectures" class="back-btn">← 一覧に戻る</a>
+
+    <div class="detail-box">
+      <div class="detail-header" style={`border-top-color: ${pref.themeColor || '#2298b8'};`}>
+        <span class={`status-badge ${pref.status}`}>{pref.statusLabel}</span>
+        <h1>{pref.name}</h1>
+        <p class="account-tag">連盟ID: <code>{pref.account}</code></p>
+      </div>
+
+      <div class="detail-body">
+        <p class="desc">{pref.description}</p>
+
+        <table class="detail-table">
+          <tr>
+            <th>公式Instagram</th>
+            <td>
+              {pref.instagram ? (
+                <a href={pref.instagram} target="_blank">{pref.instagram}</a>
+              ) : (
+                <span class="muted">開設準備中</span>
+              )}
+            </td>
+          </tr>
+          <tr>
+            <th>連絡先メール</th>
+            <td>
+              {pref.email ? (
+                <a href={`mailto:${pref.email}`}>{pref.email}</a>
+              ) : (
+                <span class="muted">準備中（連合窓口へお問い合わせください）</span>
+              )}
+            </td>
+          </tr>
+          <tr>
+            <th>参加・立ち上げ</th>
+            <td>
+              <a href="https://forms.gle/zPdjCMkgBmT1A91c7" target="_blank" class="form-btn">
+                {pref.shortName}県連盟の参加・立ち上げフォームを開く ➔
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page-container {
+    max-width: 760px;
+    margin: 40px auto 80px;
+    padding: 0 16px;
+  }
+  .back-btn {
+    display: inline-block;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+  .detail-box {
+    background: #fff;
+    border: 2.5px solid var(--ink);
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+    overflow: hidden;
+  }
+  .detail-header {
+    padding: 30px 24px 20px;
+    background: #fafafa;
+    border-bottom: 2px dashed #cbd5e1;
+    border-top: 8px solid var(--tsu-blue);
+  }
+  .detail-header h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 10px 0 4px;
+  }
+  .status-badge {
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1.5px solid var(--ink);
+  }
+  .status-badge.active { background: #fee2e2; }
+  .status-badge.coming_soon { background: #fef3c7; }
+  .status-badge.undecided { background: #f1f5f9; }
+  
+  .account-tag {
+    font-size: 0.9rem;
+    color: #4b5563;
+  }
+  .detail-body {
+    padding: 24px;
+  }
+  .desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .detail-table th, .detail-table td {
+    padding: 12px;
+    border-bottom: 1.5px dashed #e2e8f0;
+    text-align: left;
+  }
+  .detail-table th {
+    width: 30%;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+  .form-btn {
+    display: inline-block;
+    font-weight: 900;
+    color: var(--ink);
+    background: var(--stamp-yellow);
+    border: 1.5px solid var(--ink);
+    padding: 4px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .muted {
+    color: #94a3b8;
+  }
+  @media (max-width: 600px) {
+    .detail-table th, .detail-table td { display: block; width: 100%; }
+    .detail-table th { border-bottom: none; padding-bottom: 2px; }
+  }
+</style>
