@@ -1,153 +1,239 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { prefectures, type Prefecture } from '../../data/prefectures';
+import { prefectures } from '../../data/prefectures';
 
-export function getStaticPaths() {
-  return prefectures.map((pref) => ({
+export async function getStaticPaths() {
+  return prefectures.map(pref => ({
     params: { id: pref.id },
     props: { pref },
   }));
 }
 
-interface Props {
-  pref: Prefecture;
-}
-
 const { pref } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${pref.name} | 東北生徒会連合`}>
-  <div class="page-container">
-    <a href={`${import.meta.env.BASE_URL}/#prefectures`} class="back-btn">← 一覧に戻る</a>
+  <article class="pref-detail">
+    <div class="container">
+      <!-- 戻るリンク -->
+      <nav class="back-nav">
+        <a href={`${base}/#prefectures`} class="btn-back">
+          <svg class="back-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+          </svg>
+          各県連盟一覧に戻る
+        </a>
+      </nav>
 
-    <div class="detail-box">
-      <div class="detail-header" style={`border-top-color: ${pref.themeColor || '#2298b8'};`}>
-        <span class={`status-badge ${pref.status}`}>{pref.statusLabel}</span>
-        <h1>{pref.name}</h1>
-        <p class="account-tag">連盟ID: <code>{pref.account}</code></p>
-      </div>
+      <!-- メインカード -->
+      <div class="pref-card">
+        <header class="pref-header">
+          <div class="title-group">
+            <h1 class="pref-title">{pref.name}</h1>
+            <span class={`status-tag ${pref.active ? 'active' : 'prep'}`}>
+              {pref.active ? '設立済み' : '準備中'}
+            </span>
+          </div>
+          <p class="org-title">{pref.orgName || '組織設立準備中'}</p>
+        </header>
 
-      <div class="detail-body">
-        <p class="desc">{pref.description}</p>
-
-        <table class="detail-table">
-          <tr>
-            <th>公式Instagram</th>
-            <td>
-              {pref.instagram ? (
-                <a href={pref.instagram} target="_blank">{pref.instagram}</a>
+        <section class="pref-content">
+          <div class="info-block">
+            <h2 class="info-heading">
+              <span class="heading-pin">📌</span>
+              活動状況・詳細
+            </h2>
+            <div class="info-text">
+              {pref.active ? (
+                <p>現在、{pref.name}では生徒会連盟が設立され、地域内の学校間交流や外務活動が活発に行われています。東北生徒会連合とも連携し、ブロック全体の連携強化を進めています。</p>
               ) : (
-                <span class="muted">開設準備中</span>
+                <p>現在、{pref.name}では連盟の設立・活動推進に向けた準備を進めています。関心のある生徒会役員・学校関係者の皆様からのご連絡・ご参加をお待ちしております。</p>
               )}
-            </td>
-          </tr>
-          <tr>
-            <th>連絡先メール</th>
-            <td>
-              {pref.email ? (
-                <a href={`mailto:${pref.email}`}>{pref.email}</a>
-              ) : (
-                <span class="muted">準備中（連合窓口へお問い合わせください）</span>
-              )}
-            </td>
-          </tr>
-          <tr>
-            <th>参加・立ち上げ</th>
-            <td>
-              <a href={`${import.meta.env.BASE_URL}/#prefectures`} target="_blank" class="form-btn">
-                {pref.shortName}県連盟の参加・立ち上げフォームを開く ➔
-              </a>
-            </td>
-          </tr>
-        </table>
+            </div>
+          </div>
+
+          <div class="action-box">
+            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" class="btn-contact">
+              {pref.name}に関するお問い合わせ・参加フォームはこちら →
+            </a>
+          </div>
+        </section>
       </div>
     </div>
-  </div>
+  </article>
 </Layout>
 
 <style>
-  .page-container {
-    max-width: 760px;
-    margin: 40px auto 80px;
-    padding: 0 16px;
+  .pref-detail {
+    padding: 3rem 1.25rem 5rem;
+    min-height: 80vh;
   }
-  .back-btn {
-    display: inline-block;
-    font-weight: 900;
-    margin-bottom: 20px;
-    text-decoration: none;
-  }
-  .detail-box {
-    background: #fff;
-    border: 2.5px solid var(--ink);
-    border-radius: 16px;
-    box-shadow: 4px 4px 0 var(--ink);
-    overflow: hidden;
-  }
-  .detail-header {
-    padding: 30px 24px 20px;
-    background: #fafafa;
-    border-bottom: 2px dashed #cbd5e1;
-    border-top: 8px solid var(--tsu-blue);
-  }
-  .detail-header h1 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin: 10px 0 4px;
-  }
-  .status-badge {
-    font-size: 0.75rem;
-    font-weight: 900;
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1.5px solid var(--ink);
-  }
-  .status-badge.active { background: #fee2e2; }
-  .status-badge.coming_soon { background: #fef3c7; }
-  .status-badge.undecided { background: #f1f5f9; }
-  
-  .account-tag {
-    font-size: 0.9rem;
-    color: #4b5563;
-  }
-  .detail-body {
-    padding: 24px;
-  }
-  .desc {
-    font-size: 1rem;
-    margin-bottom: 24px;
-    font-weight: 700;
-  }
-  .detail-table {
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
     width: 100%;
-    border-collapse: collapse;
   }
-  .detail-table th, .detail-table td {
-    padding: 12px;
-    border-bottom: 1.5px dashed #e2e8f0;
-    text-align: left;
+
+  /* 戻るリンク */
+  .back-nav {
+    margin-bottom: 1.5rem;
   }
-  .detail-table th {
-    width: 30%;
-    color: #64748b;
-    font-size: 0.9rem;
-  }
-  .form-btn {
-    display: inline-block;
-    font-weight: 900;
-    color: var(--ink);
-    background: var(--stamp-yellow);
-    border: 1.5px solid var(--ink);
-    padding: 4px 12px;
-    border-radius: 8px;
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    box-shadow: 2px 2px 0 var(--ink);
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    transition: all 0.2s ease;
   }
-  .muted {
-    color: #94a3b8;
+  .btn-back:hover {
+    color: #0284c7;
+    border-color: #0284c7;
+    background: #f0f9ff;
+    transform: translateX(-2px);
   }
-  @media (max-width: 600px) {
-    .detail-table th, .detail-table td { display: block; width: 100%; }
-    .detail-table th { border-bottom: none; padding-bottom: 2px; }
+  .back-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* メイン詳細カード */
+  .pref-card {
+    background: #ffffff;
+    border: 3px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 0px #cbd5e1, 0 12px 24px rgba(0,0,0,0.04);
+  }
+
+  .pref-header {
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .title-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .pref-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .status-tag {
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  .status-tag.active {
+    background: #dcfce7;
+    color: #166534;
+    border: 1.5px solid #86efac;
+  }
+  .status-tag.prep {
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1.5px solid #cbd5e1;
+  }
+  .org-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2298b8;
+    margin: 0;
+  }
+
+  /* コンテンツ */
+  .info-block {
+    background: #f8fafc;
+    border: 2px solid #edf2f7;
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  .info-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 1rem;
+  }
+  .heading-pin {
+    font-size: 1.25rem;
+  }
+  .info-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #334155;
+    margin: 0;
+  }
+
+  /* ボタン */
+  .action-box {
+    text-align: center;
+  }
+  .btn-contact {
+    display: inline-block;
+    width: 100%;
+    max-width: 480px;
+    background: #2298b8;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 6px 0px #166579;
+    transition: all 0.2s ease;
+    border: 2px solid #2298b8;
+  }
+  .btn-contact:hover {
+    background: #1b7a94;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0px #166579;
+  }
+
+  /* 📱 レスポンシブ（スマホ対応） */
+  @media (max-width: 640px) {
+    .pref-detail {
+      padding: 1.5rem 1rem 3.5rem;
+    }
+    .pref-card {
+      padding: 1.5rem 1.25rem;
+      border-radius: 16px;
+    }
+    .pref-title {
+      font-size: 1.75rem;
+    }
+    .org-title {
+      font-size: 1rem;
+    }
+    .info-block {
+      padding: 1.25rem 1rem;
+    }
+    .info-text p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .btn-contact {
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+    }
   }
 </style>

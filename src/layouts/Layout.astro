@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href={`${base}/logo.png`} />
@@ -30,10 +30,10 @@ const base = import.meta.env.BASE_URL;
   <body>
     <div class="demo-banner">
       <span class="demo-tag">DEMO</span>
-      <span>現在、公開に向けたデザイン検証版を表示しています。</span>
+      <span class="demo-msg">現在、公開に向けたデザイン検証版を表示しています。</span>
     </div>
     <Header />
-    <main>
+    <main class="main-wrapper">
       <slot />
     </main>
     <Footer />
@@ -46,9 +46,12 @@ const base = import.meta.env.BASE_URL;
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     margin: 0;
+    overflow-x: hidden;
+    width: 100%;
     font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #1e293b;
     background-color: #f8fafc;
@@ -56,6 +59,10 @@ const base = import.meta.env.BASE_URL;
     background-size: 20px 20px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+  }
+  .main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
   }
   .demo-banner {
     background: #fef2f2;
@@ -68,6 +75,7 @@ const base = import.meta.env.BASE_URL;
     gap: 0.6rem;
     padding: 0.4rem 1rem;
     border-bottom: 2px dashed #fca5a5;
+    text-align: center;
   }
   .demo-tag {
     background: #ef4444;
@@ -77,5 +85,13 @@ const base = import.meta.env.BASE_URL;
     padding: 0.15rem 0.45rem;
     border-radius: 4px;
     letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .demo-banner {
+      font-size: 0.72rem;
+      padding: 0.35rem 0.75rem;
+    }
   }
 </style>
