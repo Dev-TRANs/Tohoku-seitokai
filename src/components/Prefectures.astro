@@ -1,6 +1,5 @@
 ---
 import { prefectures } from '../data/prefectures';
-const base = import.meta.env.BASE_URL;
 ---
 <section id="prefectures" class="pref-section">
   <div class="container">
@@ -14,7 +13,7 @@ const base = import.meta.env.BASE_URL;
 
     <div class="pref-grid">
       {prefectures.map(pref => (
-        <a href={`${base}/prefectures/${pref.id}`} class="pref-card">
+        <a href={`/prefectures/${pref.id}`} class="pref-card">
           <div class="pref-top">
             <span class="pref-name">{pref.name}</span>
             <span class={`pref-status ${pref.active ? 'active' : 'prep'}`}>
