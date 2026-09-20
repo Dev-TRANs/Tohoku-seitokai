@@ -15,6 +15,18 @@
         東北地方の生徒会外務活動を推進すべく、東北の生徒会に所属する学生自身が2024年に立ち上げた学生団体です。
       </p>
 
+      <!-- 過去の活動実績 (TSK) -->
+      <div class="archive-box">
+        <span class="archive-label">過去の活動実績：</span>
+        <a href="https://tsk.stki.org" target="_blank" rel="noopener noreferrer" class="archive-link">
+          東北生徒会会議 (TSK) ポータルサイト
+          <svg class="external-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+            <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+          </svg>
+        </a>
+      </div>
+
       <div class="sub-block">
         <div class="sub-header">
           <span class="sub-pin">📌</span>
@@ -76,8 +88,46 @@
     margin: 0 0 1.25rem;
   }
   .body-text:last-of-type {
+    margin-bottom: 1.25rem;
+  }
+
+  /* 過去実績リンクスタイル */
+  .archive-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
     margin-bottom: 2rem;
   }
+  .archive-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+    white-space: nowrap;
+  }
+  .archive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #0284c7;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .archive-link:hover {
+    color: #0369a1;
+    text-decoration: underline;
+  }
+  .external-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
   .sub-block {
     background: #f0fdfa;
     border: 2px solid #99f6e4;
@@ -110,8 +160,15 @@
     font-weight: 800;
     padding: 0 0.2em;
   }
+
   @media (max-width: 640px) {
     .card-box { padding: 1.5rem 1.25rem; border-radius: 18px; }
     .section-title { font-size: 1.75rem; }
+    .archive-box {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      padding: 0.75rem 1rem;
+    }
   }
 </style>
