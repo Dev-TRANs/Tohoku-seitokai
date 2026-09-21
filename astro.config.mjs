@@ -1,6 +1,13 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
+// https://astro.build/config
 export default defineConfig({
-  // Cloudflare Pages + カスタムドメイン運用のため base は不要
   site: 'https://tsu.stki.org',
+  integrations: [
+    sitemap({
+      // サイトマップのオプションを明示してエラーを防ぐ
+      customPages: ['https://tsu.stki.org/'],
+    }),
+  ],
 });
